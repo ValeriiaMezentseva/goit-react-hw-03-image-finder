@@ -47,4 +47,5 @@ export default Modal;
 Modal.propTypes = {
     image: PropTypes.string.isRequired, 
     tags: PropTypes.string.isRequired, 
+    toggle: PropTypes.func.isRequired,
 }
