@@ -24,7 +24,6 @@ export class App extends Component {
      const res = await fetchImages(query, page);
      const items = res.hits;
         
-        this.setState({ loading: true })
         this.setState(({ images }) => ({
           images: [...images, ...items],
           isLoading: false,
@@ -44,16 +43,7 @@ export class App extends Component {
       toast.error("You didn't enter anything!");
       return;
       }
-    const { page, query } = this.state;
-    this.setState({ loading: true })
-    const res = await fetchImages(input, page);
-    this.setState({ loading: false })
-    
-      if (res.hits.length === 0) {
-      toast.error("We couldn't find anything on your request");
-      return;
-    }; 
-
+    const { query } = this.state;
     if (input !== query) {
      this.setState({
       images: [],
